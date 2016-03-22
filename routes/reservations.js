@@ -11,7 +11,7 @@
  			if(err) {
 			res.status(400).send(err);
 			return;
-		} 
+		}
     res.send(reservations);
   });
  });
@@ -33,10 +33,18 @@
  		Reservation.findById(req.params.id , function (err, reservation) {
  			if(err) {
 				console.log(err);
+        res.status(400).send();
 			} else {
-				console.log('reservation:', reservation);
+        // req.body === editedReservation
+        reservation.name = req.body.name;
+        reservation.date = req.body.date;
+        reservation.partySize = req.body.partySize;
+        reservation.save(function(err, savedReservation) {
+          if (err) res.status(400).send();
+          console.log('savedReservation:', savedReservation);
+          res.send(savedReservation);
+        })
 			}
-			res.send(reservation);
  		});
  });
 
@@ -48,7 +56,7 @@
 				console.log('reservation:', updatedCheckIn);
 			}
 
- 	  }); 
+ 	  });
  });
 
  router.delete('/:id', function (req,res) {

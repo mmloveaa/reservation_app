@@ -23,7 +23,7 @@ app.service('reserService' , function ($http){
 		};
 
 		this.update = function(editedReservation) {
-			return $http.put(`/reservations/${editDetail._id}`, editedReservation);
+			return $http.put(`/reservations/${editedReservation._id}`, editedReservation);
 		};
 
 		this.checkin = function(reservation, checkin) {

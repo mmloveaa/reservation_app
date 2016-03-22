@@ -12,7 +12,7 @@ app.controller('listCtrl', function($scope, $http, $state, reserService) {
     .then(function(res) {
         console.log('res: ', res);
         var reservations = res.data;
-        
+
         $scope.reservations = reservations;
       }, function(err) {
         console.error('err: ', err);
@@ -34,28 +34,31 @@ app.controller('listCtrl', function($scope, $http, $state, reserService) {
     .then(function(err, res){
       console.log(res)
     })
-  } 
+  }
 
   $scope.addReservation = function (newReservation){
     console.log("newReservation: ", newReservation.date)
     reserService.create(newReservation)
       .then(function(res) {
-        $scope.reservations.push(res.data) 
+        $scope.reservations.push(res.data)
       }, function(err) {
         console.error('err:', err);
       })
   }
-  
 
 
-  $scope.editDetail = function(reservation) {
+
+  $scope.editDetail = function(reservation, index) {
     $scope.listEd = angular.copy(reservation);
+    $scope.listEd.time = new Date(reservation.date);
+    $scope.listEdIndex = index;
+    console.log($scope.listEd.date);
   }
 
-  $scope.updateReservation = function(editedReservation) {
-    reserService.update($scope.editObj)
+  $scope.updateReservation = function() {
+    reserService.update($scope.listEd)
       .then(function(res) {
-        $scope.reservations.splice(editedReservation, 1, $scope.editObj)
+        $scope.reservations.splice($scope.listEdIndex, 1, $scope.listEd)
         swal("Good job!", "You edited the detail" , "success")
         // console.log("scope editObj: ", $scope.editObj);
       }, function(error) {
@@ -63,11 +66,11 @@ app.controller('listCtrl', function($scope, $http, $state, reserService) {
       });
   }
 
-  $scope.removeReservation = function(reservation) { 
+  $scope.removeReservation = function(reservation) {
     console.log("reservation: ", reservation)
     // debugger;
   reserService.remove(reservation)
-      .then(function() {  
+      .then(function() {
         var index = $scope.reservations.indexOf(reservation);
         $scope.reservations.splice(index, 1);
         swal("You successfully deleted this!")
@@ -75,5 +78,5 @@ app.controller('listCtrl', function($scope, $http, $state, reserService) {
         console.error('err:', err);
       })
   };
-  
+
 });
