@@ -1,0 +1,21 @@
+{
+  "name": "reservation",
+  "description": "",
+  "main": "",
+  "authors": [
+    "mmloveaa <mandychan1128@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/mmloveaa/reservation_app",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.2"
+  }
+}
