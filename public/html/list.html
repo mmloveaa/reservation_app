@@ -1,0 +1,98 @@
+<div class="modal fade" id="new-card-modal" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="new-worker-title">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" ng-click='cancelEditing()' data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title" id="new-card-title">New Reservation</h4>
+				</div>
+				<form id="addPlacesForm">
+					<div class="modal-body">
+						<label class='control-label'>Name</label>
+						<input required placeholder='Name' ng-model='newReservation.name' class='input form-control'>
+						<p style="color: red" ng-if="!newReservation.name">Name is required</p>
+						<label class='control-label'>Time</label>
+						<input required placeholder='Time' ng-model='newReservation.date' class='input form-control'>
+						<p style="color: red" ng-if="!newReservation.partySize">Enter the size of the Party</p>
+						<!-- <label class='control-label'>Image</label> -->
+						<!-- <input required type="url" placeholder='URL' ng-model='newPlace.image' class='input form-control'>
+						<p style="color: red" ng-if="!newPlace.image">Don't forget to put an image</p> -->
+					</div>
+				</form>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" ng-click='cancelEditing()' data-dismiss="modal">Cancel</button>
+					<button form='newworkerform' type="button" class="btn btn-info" ng-click='addCard(newPlace)'>Add Reservation</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="modal fade" data-backdrop="static" data-keyboard="false" id="edit-card-modal" tabindex="-1" role="dialog" aria-labelledby="new-worker-title">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" ng-click='cancelEditing()' data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title" id="new-card-title">Edit Places</h4>
+				</div>
+				<form id="editPlacesForm">
+					<div class="modal-body">
+						<label class='control-label'>Location</label>
+						<input required placeholder='Location' ng-model='listEd.location' class='input form-control' >
+						<label class='control-label'>Description</label>
+						<input required placeholder='Desciption' ng-model='listEd.description' class='input form-control'>
+					</div>
+				</form>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" ng-click='cancelEditing()' data-dismiss="modal">Cancel</button>
+					<button form='newworkerform' type="button" class="btn btn-info" ng-click='commitEdit(listEd)'>Submit</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+<div class='container first-row'>
+		<button class='btn btn-sm btn-info edit' data-toggle='modal' data-target='#new-card-modal'><i class="fa fa-plus-circle"></i></button>
+		<label class="">Add New Destination</label>
+		<!-- <span id="filterbox"><input class="form-control" size=30 placeholder="filter search..." ng-model='filterText'></span> -->
+</div>
+
+	<div class="container well">
+
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>Number</th>
+						<th>Location</th>
+						<th>Description</th>
+						<th>Image</th>
+						<th>Edit</th>
+						<th>Remove</th>
+						<th>Note</th>
+					</tr>
+				</thead>
+
+				<tbody>
+					<tr ng-repeat="place in places">
+						<td>{{place.place_id}}</td>
+						<td>{{place.location}}</td>
+						<td>{{place.description}}</td>
+						<td><img ng-src='{{place.image}}' class="imagesize"></td>
+						<td>
+							<button class="btn btn-warning btn-sm" data-toggle="modal" data-target="#edit-card-modal" ng-click='editList(place)'><i class="fa fa-pencil-square-o"></i></button>
+						</td>
+						<td>
+							<button ng-click='removeCard(place.place_id)' class="btn btn-danger btn-sm"><i class="fa fa-times"></i></button>
+						</td>
+							<td>
+							<a ng-click = 'goToDetail(place.place_id)'  >
+							<button class="btn btn-primary btn-sm"><i class="fa fa-comments"></i></button>
+						</td>
+
+
+<!-- </i><a ui-sref="detail"> -->
+
+					</tr>
+				</tbody>
+			</table>
+
+	</div>

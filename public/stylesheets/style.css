@@ -1,0 +1,22 @@
+body {
+  padding: 50px;
+  font: 16px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background: url('../images/rest.jpg') no-repeat center center fixed; 
+	 -webkit-background-size: cover;
+	 -moz-background-size: cover;
+	 -o-background-size: cover;
+	 background-size: cover;
+	 font-weight: bold;
+	 color: #e8e3e3;
+
+}
+
+input {
+	color: black;
+}
+
+a {
+  color: #00B7FF;
+}
+
+
