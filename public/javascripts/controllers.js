@@ -4,7 +4,7 @@
 var app = angular.module('reservationApp');
 
 // inject the dependency in it via $scope
-app.controller('listCtrl', function($scope, $http, reserService) {
+app.controller('listCtrl', function($scope, $http, $state, reserService) {
   console.log('woo! listCtrl!');
 
 
@@ -17,6 +17,15 @@ app.controller('listCtrl', function($scope, $http, reserService) {
       }, function(err) {
         console.error('err: ', err);
     });
+
+
+  $scope.changeState = function () {
+    $state.go('detail');
+  };
+
+    $scope.goHome = function () {
+    $state.go('home');
+  };
 
   $scope.check = function (reservation, checkin) {
     console.log('checkin: ', checkin)
