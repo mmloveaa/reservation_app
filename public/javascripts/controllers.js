@@ -50,7 +50,7 @@ app.controller('listCtrl', function($scope, $http, $state, reserService) {
 
   $scope.editDetail = function(reservation, index) {
     $scope.listEd = angular.copy(reservation);
-    $scope.listEd.time = new Date(reservation.date);
+    $scope.listEd.date = new Date(reservation.date);
     $scope.listEdIndex = index;
     console.log($scope.listEd.date);
   }
