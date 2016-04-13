@@ -7,6 +7,7 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link href='https://fonts.googleapis.com/css?family=Noto+Serif' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="stylesheets/style.css">
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular.min.js"></script>
@@ -74,9 +75,7 @@
 <div class="container">
 	<center>
 	<br />
-	<div id="title">
-  <h1>Make a Reservation</h1>
-  </div>
+  <br />
   <br />
 
 		<input class="form-control"  ng-model="newReservation.name" type="text" placeholder="Name">
@@ -88,7 +87,7 @@
 
 		<span id="filterbox"><input class="form-control" size=30 placeholder="filter name..." ng-model='filterText'></span>
 		<br />
-		<button class="btn btn-info btn-lg" ng-click='addReservation(newReservation)'>Add Reservation</button>
+		<button class="btn btn-warning btn-lg" ng-click='addReservation(newReservation)'>Add Reservation</button>
 
 
 	<br />
@@ -123,7 +122,7 @@
 	</table>
 	<br />
 
-	<button class="btn btn-warning btn-lg" ng-click="showAllReservations =! showAllReservations">Show All</button>
+	<button class="btn btn-info btn-lg" ng-click="showAllReservations =! showAllReservations">Show All</button>
 	<!-- <table ng-if='showDetails' class="table" ng-click='showDetail(thisFood)'>
 		<tbody>
 			<tr>
@@ -148,7 +147,7 @@
 
 
 	<button class="btn btn-info btn-lg" ng-click="changeState()">Message</button>
-	<button class="btn btn-primary btn-lg" ng-click="goHome()">Home</button>
+	<button class="btn btn-info btn-lg" ng-click="goHome()">Home</button>
 	<br />
 	<br />
 	<ui-view></ui-view>

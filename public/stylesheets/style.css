@@ -1,6 +1,7 @@
 body {
   padding: 50px;
-  font: 16px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 16px;
+  font-family: 'Noto Serif', serif;
   background: url('../images/rest-bg.jpg') no-repeat center center fixed;
 	 -webkit-background-size: cover;
 	 -moz-background-size: cover;
@@ -23,4 +24,15 @@ img {
 	height: 300px;
 	width: 350px;
 }
+
+#welcome {
+  color: black;
+}
+
+#topBar {
+  min-height: 80px;
+}
+
+.form-control {
+  width: 75%;
 }
